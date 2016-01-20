@@ -1,6 +1,7 @@
 /**
  * Created by asaybel on 18.01.2016.
  */
+
 $(document).ready(function () {
     $('.cell').click(function () {
         var color = $(this).css('background-color') == 'rgb(0, 0, 0)' ? 'white' : 'black';
@@ -9,10 +10,11 @@ $(document).ready(function () {
 
     $('#analyze').click(function () {
         var data = [];
-        $('.cell').each(function(index, value) {
+        $('.cell').each(function (index, value) {
             var i = $(this).css('background-color') == 'rgb(0, 0, 0)' ? 1 : 0;
             data.push(i);
         });
-        $('.panel-body').text(data);
+        var network = new Network();
     });
 });
+
