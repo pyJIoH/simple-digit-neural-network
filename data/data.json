@@ -1,0 +1,42 @@
+[
+  {
+    "name": "zero",
+    "data": []
+  },
+  {
+    "name": "one",
+    "data": []
+  },
+  {
+    "name": "two",
+    "data": []
+  },
+  {
+    "name": "three",
+    "data": []
+  },
+  {
+    "name": "four",
+    "data": []
+  },
+  {
+    "name": "five",
+    "data": [1, 2, 1, 1, 0, -4, 1, 2, 1, -4, 0, 1, 1, 1, 0]
+  },
+  {
+    "name": "six",
+    "data": []
+  },
+  {
+    "name": "seven",
+    "data": []
+  },
+  {
+    "name": "eight",
+    "data": []
+  },
+  {
+    "name": "nine",
+    "data": []
+  }
+]
