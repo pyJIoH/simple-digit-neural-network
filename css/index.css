@@ -12,3 +12,7 @@
 #panelResults {
     min-height: 500px;
 }
+
+#analyze {
+    min-width: 150px;
+}
