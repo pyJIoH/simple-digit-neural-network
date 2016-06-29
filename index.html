@@ -1,65 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app" lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <title></title>
 </head>
-<body>
-<div class="container">
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-4">
-                <table align="right" class="center-block">
-                    <tbody>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                        <td class="cell"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-4">
-                <button type="button" id="analyze" class="btn btn-primary center-block">Analyze</button>
-            </div>
-            <div class="col-md-4">
-                <div id="panelResults" align="left" class="panel panel-default center-block">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Results</h3>
-                    </div>
-                    <div class="panel-body">
-                        Panel content
+<body ng-controller="ctrl">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-4">
+                    <table align="right" class="center-block">
+                        <tbody>
+                        <tr ng-repeat="n in [0, 1, 2, 3, 4]">
+                            <td class="cell" ng-repeat="m in [0, 1, 2]" ng-click="click(n, m)" ng-style="cellStyle"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" id="analyze" ng-click="analyze()" class="btn btn-primary center-block">Analyze</button>
+                    <button type="button" id="clear" class="btn btn-primary center-block">Clear</button>
+                </div>
+                <div class="col-md-4">
+                    <div id="panelResults" align="left" class="panel panel-default center-block">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Results</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/network.js"></script>
 <script src="js/index.js"></script>

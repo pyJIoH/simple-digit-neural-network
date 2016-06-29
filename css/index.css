@@ -13,6 +13,10 @@
     min-height: 500px;
 }
 
-#analyze {
+.btn {
     min-width: 150px;
+}
+
+#clear {
+    margin-top: 20px;
 }

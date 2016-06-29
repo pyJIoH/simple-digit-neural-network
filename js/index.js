@@ -1,27 +1,15 @@
-/**
- * Created by asaybel on 18.01.2016.
- */
+(function () {
+    var app = angular.module('app', []).controller('ctrl',
+        function ($scope) {
+            $scope.cellStyle = {'background-color':'white'};
+            $scope.click = function (n, m) {
+                $scope.cellStyle = {'background-color':'black'};
+            }
 
-$(document).ready(function () {
-    $('.cell').click(function () {
-        var color = $(this).css('background-color') == 'rgb(0, 0, 0)' ? 'white' : 'black';
-        $(this).css('background-color', color);
-    });
+            $scope.analyze = function () {
 
-    $('#analyze').click(function () {
-        var data = [];
-        $('.cell').each(function (index, value) {
-            var i = $(this).css('background-color') == 'rgb(0, 0, 0)' ? 1 : 0;
-            data.push(i);
+            }
         });
-        var data = $.getJSON('data/data.json', function (data) {
-            var items = [];
-            $.each(data, function (key, val) {
-                //console.log(key + ' ' + val);
-            });
-        });
-        var network = new netjs.Network();
-        console.log(network);
-    });
-});
+})()
+
 
