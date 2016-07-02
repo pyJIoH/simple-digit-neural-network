@@ -1,9 +1,10 @@
 (function () {
     var app = angular.module('app', []).controller('ctrl',
         function ($scope) {
-            $scope.cellStyle = {'background-color':'white'};
             $scope.click = function (n, m) {
-                $scope.cellStyle = {'background-color':'black'};
+                const black = {'background-color':'black'};
+                const white = {'background-color':'white'};
+                $scope['cellStyle' + n + m] = JSON.stringify($scope['cellStyle' + n + m]) == (JSON.stringify(black)) ? white : black;
             }
 
             $scope.analyze = function () {

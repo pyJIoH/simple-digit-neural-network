@@ -14,7 +14,7 @@
                     <table align="right" class="center-block">
                         <tbody>
                         <tr ng-repeat="n in [0, 1, 2, 3, 4]">
-                            <td class="cell" ng-repeat="m in [0, 1, 2]" ng-click="click(n, m)" ng-style="cellStyle"></td>
+                            <td class="cell" ng-repeat="m in [0, 1, 2]" ng-click="click(n, m)" ng-style="cellStyle{{n}}{{m}}"></td>
                         </tr>
                         </tbody>
                     </table>
