@@ -1,33 +1,33 @@
 (function () {
     function getZero() {
-        return [0, 0];
+        return [[1,1,1],[1,0,1],[1,0,1],[1,0,1],[1,1,1]];
     }
     function getOne() {
-        return [1, 1];
+        return [[0,1,0],[1,1,0],[0,1,0],[0,1,0],[0,1,0]];
     }
     function getTwo() {
-        return [2, 2];
+        return [[1,1,1],[0,0,1],[1,1,1],[1,0,0],[1,1,1]];
     }
     function getThree() {
-        return [3, 3];
+        return [[1,1,1],[0,0,1],[1,1,1],[0,0,1],[1,1,1]];
     }
     function getFour() {
-        return [4, 4];
+        return [[1,0,1],[1,0,1],[1,1,1],[0,0,1],[0,0,1]];
     }
     function getFive() {
-        return [5, 5];
+        return [[1,1,1],[1,0,0],[1,1,1],[0,0,1],[1,1,1]];
     }
     function getSix() {
-        return [6, 6];
+        return [[1,1,1],[1,0,0],[1,1,1],[1,0,1],[1,1,1]];
     }
     function getSeven() {
-        return [7, 7];
+        return [[1,1,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]];
     }
     function getEight() {
-        return [8, 8];
+        return [[1,1,1],[1,0,1],[1,1,1],[1,0,1],[1,1,1]];
     }
     function getNine() {
-        return [9, 9];
+        return [[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]];
     }
 
     var app = angular.module('app', []).controller('ctrl',
@@ -54,7 +54,13 @@
             };
 
             $scope.analyze = function () {
-                console.log(trainedNet.run([2, 2]));
+                var input = new Array(5);
+                for (var n = 0; n < 5; n++){
+                    input[n] = new Array(3);
+                    for (var m = 0; m < 3; m++)
+                        input[n][m] = JSON.stringify($scope['cellStyle' + n + m]) == (JSON.stringify(black)) ? 1 : 0;
+                }
+                console.log(trainedNet.run(input));
             };
 
             $scope.clear = function () {
