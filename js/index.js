@@ -54,14 +54,26 @@
             };
 
             $scope.analyze = function () {
-                var input = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                var input = new Array(15);
                 for (var n = 0; n < 5; n++)
                     for (var m = 0; m < 3; m++)
                         input[m + n*3] = JSON.stringify($scope['cellStyle' + n + m]) == (JSON.stringify(black)) ? 1 : 0;
-                console.log(trainedNet.run(input));
+                var answers = trainedNet.run(input);
+
+                $scope.answer = 'Zero: ' + (answers.Zero * 100).toFixed(2) + '%\n' +
+                    'One: ' + (answers.One * 100).toFixed(2) + '%\n' +
+                    'Two: ' + (answers.Two * 100).toFixed(2) + '%\n' +
+                    'Three: ' + (answers.Three * 100).toFixed(2) + '%\n' +
+                    'Four: ' + (answers.Four * 100).toFixed(2) + '%\n' +
+                    'Five: ' + (answers.Five * 100).toFixed(2) + '%\n' +
+                    'Six: ' + (answers.Six * 100).toFixed(2) + '%\n' +
+                    'Seven: ' + (answers.Seven * 100).toFixed(2) + '%\n' +
+                    'Eight: ' + (answers.Eight * 100).toFixed(2) + '%\n' +
+                    'Nine: ' + (answers.Nine * 100).toFixed(2) + '%\n';
             };
 
             $scope.clear = function () {
+                $scope.answer = '';
                 for (var n = 0; n < 5; n++)
                     for (var m = 0; m < 3; m++)
                         $scope['cellStyle' + n + m] = white;
