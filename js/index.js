@@ -1,33 +1,33 @@
 (function () {
     function getZero() {
-        return [[1,1,1],[1,0,1],[1,0,1],[1,0,1],[1,1,1]];
+        return [1,1,1,1,0,1,1,0,1,1,0,1,1,1,1];
     }
     function getOne() {
-        return [[0,1,0],[1,1,0],[0,1,0],[0,1,0],[0,1,0]];
+        return [0,1,0,1,1,0,0,1,0,0,1,0,0,1,0];
     }
     function getTwo() {
-        return [[1,1,1],[0,0,1],[1,1,1],[1,0,0],[1,1,1]];
+        return [1,1,1,0,0,1,1,1,1,1,0,0,1,1,1];
     }
     function getThree() {
-        return [[1,1,1],[0,0,1],[1,1,1],[0,0,1],[1,1,1]];
+        return [1,1,1,0,0,1,1,1,1,0,0,1,1,1,1];
     }
     function getFour() {
-        return [[1,0,1],[1,0,1],[1,1,1],[0,0,1],[0,0,1]];
+        return [1,0,1,1,0,1,1,1,1,0,0,1,0,0,1];
     }
     function getFive() {
-        return [[1,1,1],[1,0,0],[1,1,1],[0,0,1],[1,1,1]];
+        return [1,1,1,1,0,0,1,1,1,0,0,1,1,1,1];
     }
     function getSix() {
-        return [[1,1,1],[1,0,0],[1,1,1],[1,0,1],[1,1,1]];
+        return [1,1,1,1,0,0,1,1,1,1,0,1,1,1,1];
     }
     function getSeven() {
-        return [[1,1,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]];
+        return [1,1,1,0,0,1,0,0,1,0,0,1,0,0,1];
     }
     function getEight() {
-        return [[1,1,1],[1,0,1],[1,1,1],[1,0,1],[1,1,1]];
+        return [1,1,1,1,0,1,1,1,1,1,0,1,1,1,1];
     }
     function getNine() {
-        return [[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]];
+        return [1,1,1,1,0,1,1,1,1,0,0,1,1,1,1];
     }
 
     var app = angular.module('app', []).controller('ctrl',
@@ -54,12 +54,10 @@
             };
 
             $scope.analyze = function () {
-                var input = new Array(5);
-                for (var n = 0; n < 5; n++){
-                    input[n] = new Array(3);
+                var input = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+                for (var n = 0; n < 5; n++)
                     for (var m = 0; m < 3; m++)
-                        input[n][m] = JSON.stringify($scope['cellStyle' + n + m]) == (JSON.stringify(black)) ? 1 : 0;
-                }
+                        input[m + n*3] = JSON.stringify($scope['cellStyle' + n + m]) == (JSON.stringify(black)) ? 1 : 0;
                 console.log(trainedNet.run(input));
             };
 
